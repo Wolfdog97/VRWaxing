@@ -9,6 +9,7 @@ TagManager:
   - TeleportIgnore
   - WaxingStrip
   - WaxStick
+  - Strip
   layers:
   - Default
   - TransparentFX

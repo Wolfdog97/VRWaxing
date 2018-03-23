@@ -13,6 +13,7 @@ namespace Valve.VR.InteractionSystem
 	[RequireComponent( typeof( Interactable ) )]
 	public class InteractableExample : MonoBehaviour
 	{
+		public bool attachedToHand = false;
 		private TextMesh textMesh;
 		private Vector3 oldPosition;
 		private Quaternion oldRotation;
@@ -66,6 +67,12 @@ namespace Valve.VR.InteractionSystem
 
 					// Attach this object to the hand
 					hand.AttachObject( gameObject, attachmentFlags );
+//					if (this.gameObject.tag == "Strip") {
+//						Joint joint4 = GameObject.Find.name ("joint4");
+//
+//						Joint fixedJoint = joint4.gameObject.AddComponent<FixedJoint>();
+//						fixedJoint.connectedBody = hand;
+//					}
 				}
 				else
 				{
@@ -88,6 +95,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private void OnAttachedToHand( Hand hand )
 		{
+			attachedToHand = true;
 			textMesh.text = "Attached to hand: " + hand.name;
 			attachTime = Time.time;
 		}
@@ -98,6 +106,7 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private void OnDetachedFromHand( Hand hand )
 		{
+			attachedToHand = false;
 			textMesh.text = "Detached from hand: " + hand.name;
 		}
 
