@@ -12,6 +12,7 @@ public class Waxing : MonoBehaviour {
 
     public bool canBeDetached = true;
     public GameObject hair;
+    public GameObject[] hairs;
 
     Hand _hand;
 
@@ -31,19 +32,19 @@ public class Waxing : MonoBehaviour {
         {
             Debug.Log("GetComponent<Body> is working");
    
-            waxingPosition = hair.transform.position;
-            waxingRotation = hair.transform.rotation;
+            //waxingPosition = hair.transform.position;
+            //waxingRotation = hair.transform.rotation;
 
             if (other.gameObject.GetComponent<Body>().isWaxable != false && canBeDetached != false)
             {
                 _hand.DetachObject(gameObject);
                 canBeDetached = false;
 
-                Debug.Log("waxing position: " + waxingPosition);
-                Debug.Log("waxing rotation: " + waxingRotation);
+                //Debug.Log("waxing position: " + waxingPosition);
+                //Debug.Log("waxing rotation: " + waxingRotation);
 
-                Debug.Log("hair transform: " + hair.transform.position);
-                Debug.Log("hair transform: " + hair.transform.rotation);
+                //Debug.Log("hair transform: " + hair.transform.position);
+                //Debug.Log("hair transform: " + hair.transform.rotation);
 
                 //stripCol.enabled = !enabled;
                 Debug.Log("this is working");
